@@ -12,14 +12,16 @@ class ClientLookupMock implements ClientLookup {
 
   @override
   Future<List<ClientSummary>> search(String query) async {
-    await Future.delayed(const Duration(milliseconds: 300)); // Simulate network delay
+    await Future.delayed(
+        const Duration(milliseconds: 300)); // Simulate network delay
     if (query.isEmpty) {
       return [];
     }
     return _mockClients
         .where((client) =>
             client.nombre.toLowerCase().contains(query.toLowerCase()) ||
-            (client.codigo?.toLowerCase().contains(query.toLowerCase()) ?? false))
+            (client.codigo?.toLowerCase().contains(query.toLowerCase()) ??
+                false))
         .toList();
   }
 }

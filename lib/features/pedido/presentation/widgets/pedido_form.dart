@@ -49,7 +49,8 @@ class _PedidoFormState extends State<PedidoForm> {
     }
 
     final results = await _clientLookup.search(query);
-    if (!mounted) return; // Check if the widget is still mounted after async operation
+    if (!mounted)
+      return; // Check if the widget is still mounted after async operation
 
     setState(() {
       _foundClients = results;
@@ -90,7 +91,8 @@ class _PedidoFormState extends State<PedidoForm> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Chip(
-                label: Text('Cliente seleccionado: $_selectedClientName (ID: $_selectedClientId)'),
+                label: Text(
+                    'Cliente seleccionado: $_selectedClientName (ID: $_selectedClientId)'),
                 onDeleted: () {
                   setState(() {
                     _selectedClientId = null;
@@ -111,13 +113,15 @@ class _PedidoFormState extends State<PedidoForm> {
                   final client = _foundClients[index];
                   return ListTile(
                     title: Text(client.nombre),
-                    subtitle: client.codigo != null ? Text(client.codigo!) : null,
+                    subtitle:
+                        client.codigo != null ? Text(client.codigo!) : null,
                     onTap: () {
                       setState(() {
                         _selectedClientId = client.id;
                         _selectedClientName = client.nombre;
                         _foundClients = []; // Clear results after selection
-                        _clienteSearchController.text = client.nombre; // Set text field to selected client's name
+                        _clienteSearchController.text = client
+                            .nombre; // Set text field to selected client's name
                       });
                     },
                   );
@@ -158,13 +162,17 @@ class _PedidoFormState extends State<PedidoForm> {
               if (_formKey.currentState!.validate()) {
                 if (_fechaEntrega == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor seleccione una fecha de entrega')),
+                    const SnackBar(
+                        content:
+                            Text('Por favor seleccione una fecha de entrega')),
                   );
                   return;
                 }
                 if (_selectedClientId == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor seleccione o cree un cliente')),
+                    const SnackBar(
+                        content:
+                            Text('Por favor seleccione o cree un cliente')),
                   );
                   return;
                 }

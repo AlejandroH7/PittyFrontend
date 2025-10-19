@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pitty_frontend/data/clients/client_lookup.dart';
@@ -59,7 +58,8 @@ class _PedidoEditFormState extends State<PedidoEditForm> {
     }
 
     final results = await _clientLookup.search(query);
-    if (!mounted) return; // Check if the widget is still mounted after async operation
+    if (!mounted)
+      return; // Check if the widget is still mounted after async operation
 
     setState(() {
       _foundClients = results;
@@ -100,7 +100,8 @@ class _PedidoEditFormState extends State<PedidoEditForm> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Chip(
-                label: Text('Cliente seleccionado: $_selectedClientName (ID: $_selectedClientId)'),
+                label: Text(
+                    'Cliente seleccionado: $_selectedClientName (ID: $_selectedClientId)'),
                 onDeleted: () {
                   setState(() {
                     _selectedClientId = null;
@@ -121,13 +122,15 @@ class _PedidoEditFormState extends State<PedidoEditForm> {
                   final client = _foundClients[index];
                   return ListTile(
                     title: Text(client.nombre),
-                    subtitle: client.codigo != null ? Text(client.codigo!) : null,
+                    subtitle:
+                        client.codigo != null ? Text(client.codigo!) : null,
                     onTap: () {
                       setState(() {
                         _selectedClientId = client.id;
                         _selectedClientName = client.nombre;
                         _foundClients = []; // Clear results after selection
-                        _clienteSearchController.text = client.nombre; // Set text field to selected client's name
+                        _clienteSearchController.text = client
+                            .nombre; // Set text field to selected client's name
                       });
                     },
                   );
@@ -168,19 +171,25 @@ class _PedidoEditFormState extends State<PedidoEditForm> {
               if (_formKey.currentState!.validate()) {
                 if (_fechaEntrega == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor seleccione una fecha de entrega')),
+                    const SnackBar(
+                        content:
+                            Text('Por favor seleccione una fecha de entrega')),
                   );
                   return;
                 }
                 if (_selectedClientId == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor seleccione o cree un cliente')),
+                    const SnackBar(
+                        content:
+                            Text('Por favor seleccione o cree un cliente')),
                   );
                   return;
                 }
                 // Lógica para guardar los cambios del pedido
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Guardando cambios para pedido ${widget.pedidoId}')),
+                  SnackBar(
+                      content: Text(
+                          'Guardando cambios para pedido ${widget.pedidoId}')),
                 );
                 debugPrint('Guardando cambios para pedido ${widget.pedidoId}');
                 context.pop(); // Go back after saving

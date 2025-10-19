@@ -32,7 +32,8 @@ class PostreDetailPage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('Confirmar Eliminación'),
-                    content: Text('¿Estás seguro de que quieres eliminar el postre $id?'),
+                    content: Text(
+                        '¿Estás seguro de que quieres eliminar el postre $id?'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -44,7 +45,8 @@ class PostreDetailPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Eliminando postre $id')),
                           );
-                          context.pop(); // Go back to list after simulated deletion
+                          context
+                              .pop(); // Go back to list after simulated deletion
                         },
                         child: const Text('Eliminar'),
                       ),

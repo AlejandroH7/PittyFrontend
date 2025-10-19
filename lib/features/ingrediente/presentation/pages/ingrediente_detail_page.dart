@@ -28,7 +28,8 @@ class IngredienteDetailPage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('Confirmar Eliminación'),
-                    content: Text('¿Estás seguro de que quieres eliminar el ingrediente $id?'),
+                    content: Text(
+                        '¿Estás seguro de que quieres eliminar el ingrediente $id?'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -38,9 +39,11 @@ class IngredienteDetailPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pop(); // Close dialog
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Eliminando ingrediente $id')),
+                            SnackBar(
+                                content: Text('Eliminando ingrediente $id')),
                           );
-                          context.pop(); // Go back to list after simulated deletion
+                          context
+                              .pop(); // Go back to list after simulated deletion
                         },
                         child: const Text('Eliminar'),
                       ),

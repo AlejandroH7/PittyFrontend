@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pitty_frontend/features/cliente/presentation/pages/cliente_create_page.dart';
@@ -49,12 +48,14 @@ final appRouter = GoRouter(
         GoRoute(
           path: ':id',
           name: 'clientes_detail',
-          builder: (context, state) => ClienteDetailPage(id: state.pathParameters['id']!),
+          builder: (context, state) =>
+              ClienteDetailPage(id: state.pathParameters['id']!),
           routes: [
             GoRoute(
               path: 'editar',
               name: 'clientes_editar',
-              builder: (context, state) => ClienteEditPage(id: state.pathParameters['id']!),
+              builder: (context, state) =>
+                  ClienteEditPage(id: state.pathParameters['id']!),
             ),
           ],
         ),
@@ -73,17 +74,20 @@ final appRouter = GoRouter(
         GoRoute(
           path: ':id',
           name: 'postres_detail',
-          builder: (context, state) => PostreDetailPage(id: state.pathParameters['id']!),
+          builder: (context, state) =>
+              PostreDetailPage(id: state.pathParameters['id']!),
           routes: [
             GoRoute(
               path: 'editar',
               name: 'postres_editar',
-              builder: (context, state) => PostreEditPage(id: state.pathParameters['id']!),
+              builder: (context, state) =>
+                  PostreEditPage(id: state.pathParameters['id']!),
             ),
             GoRoute(
               path: 'receta',
               name: 'postres_receta',
-              builder: (context, state) => RecetaPage(id: state.pathParameters['id']!),
+              builder: (context, state) =>
+                  RecetaPage(id: state.pathParameters['id']!),
             ),
           ],
         ),
@@ -102,12 +106,14 @@ final appRouter = GoRouter(
         GoRoute(
           path: ':id',
           name: 'ingredientes_detail',
-          builder: (context, state) => IngredienteDetailPage(id: state.pathParameters['id']!),
+          builder: (context, state) =>
+              IngredienteDetailPage(id: state.pathParameters['id']!),
           routes: [
             GoRoute(
               path: 'editar',
               name: 'ingredientes_editar',
-              builder: (context, state) => IngredienteEditPage(id: state.pathParameters['id']!),
+              builder: (context, state) =>
+                  IngredienteEditPage(id: state.pathParameters['id']!),
             ),
           ],
         ),
@@ -126,12 +132,14 @@ final appRouter = GoRouter(
         GoRoute(
           path: ':id',
           name: 'pedidos_detail',
-          builder: (context, state) => PedidoDetailPage(id: state.pathParameters['id']!),
+          builder: (context, state) =>
+              PedidoDetailPage(id: state.pathParameters['id']!),
           routes: [
             GoRoute(
               path: 'editar',
               name: 'pedidos_editar',
-              builder: (context, state) => PedidoEditPage(id: state.pathParameters['id']!),
+              builder: (context, state) =>
+                  PedidoEditPage(id: state.pathParameters['id']!),
             ),
           ],
         ),
@@ -150,12 +158,14 @@ final appRouter = GoRouter(
         GoRoute(
           path: ':id',
           name: 'eventos_detail',
-          builder: (context, state) => EventoDetailPage(id: state.pathParameters['id']!),
+          builder: (context, state) =>
+              EventoDetailPage(id: state.pathParameters['id']!),
           routes: [
             GoRoute(
               path: 'editar',
               name: 'eventos_editar',
-              builder: (context, state) => EventoEditPage(id: state.pathParameters['id']!),
+              builder: (context, state) =>
+                  EventoEditPage(id: state.pathParameters['id']!),
             ),
           ],
         ),

@@ -94,7 +94,8 @@ class _IngredienteFormState extends State<IngredienteForm> {
               if (_formKey.currentState!.validate()) {
                 // Lógica para guardar el ingrediente
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Simulando guardar ingrediente')),
+                  const SnackBar(
+                      content: Text('Simulando guardar ingrediente')),
                 );
                 context.pop(); // Go back after saving
               }

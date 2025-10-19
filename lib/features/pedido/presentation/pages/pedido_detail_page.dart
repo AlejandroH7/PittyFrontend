@@ -28,7 +28,8 @@ class PedidoDetailPage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('Confirmar Eliminación'),
-                    content: Text('¿Estás seguro de que quieres eliminar el pedido $id?'),
+                    content: Text(
+                        '¿Estás seguro de que quieres eliminar el pedido $id?'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -40,7 +41,8 @@ class PedidoDetailPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Eliminando pedido $id')),
                           );
-                          context.pop(); // Go back to list after simulated deletion
+                          context
+                              .pop(); // Go back to list after simulated deletion
                         },
                         child: const Text('Eliminar'),
                       ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,7 +21,8 @@ class _PostreEditFormState extends State<PostreEditForm> {
   void initState() {
     super.initState();
     // Simulate fetching existing postre data
-    _nombreController = TextEditingController(text: 'Postre ${widget.postreId} Nombre');
+    _nombreController =
+        TextEditingController(text: 'Postre ${widget.postreId} Nombre');
     _precioController = TextEditingController(text: '25.50');
     _porcionesController = TextEditingController(text: '8');
     _activo = true;
@@ -95,7 +95,9 @@ class _PostreEditFormState extends State<PostreEditForm> {
               if (_formKey.currentState!.validate()) {
                 // Lógica para guardar los cambios del postre
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Guardando cambios para postre ${widget.postreId}')),
+                  SnackBar(
+                      content: Text(
+                          'Guardando cambios para postre ${widget.postreId}')),
                 );
                 context.pop(); // Go back after saving
               }

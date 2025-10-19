@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -98,10 +97,13 @@ class _EventoFormState extends State<EventoForm> {
           ),
           TextFormField(
             controller: _pedidoIdController,
-            decoration: const InputDecoration(labelText: 'ID Pedido (opcional)'),
+            decoration:
+                const InputDecoration(labelText: 'ID Pedido (opcional)'),
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value != null && value.isNotEmpty && int.tryParse(value) == null) {
+              if (value != null &&
+                  value.isNotEmpty &&
+                  int.tryParse(value) == null) {
                 return 'Por favor ingrese un número válido';
               }
               return null;
@@ -118,7 +120,8 @@ class _EventoFormState extends State<EventoForm> {
               if (_formKey.currentState!.validate()) {
                 if (_fechaHora == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor seleccione una fecha y hora')),
+                    const SnackBar(
+                        content: Text('Por favor seleccione una fecha y hora')),
                   );
                   return;
                 }

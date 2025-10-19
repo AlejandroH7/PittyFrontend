@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,9 +20,11 @@ class _ClienteEditFormState extends State<ClienteEditForm> {
   void initState() {
     super.initState();
     // Simulate fetching existing client data
-    _nombreController = TextEditingController(text: 'Cliente ${widget.clientId} Nombre');
+    _nombreController =
+        TextEditingController(text: 'Cliente ${widget.clientId} Nombre');
     _telefonoController = TextEditingController(text: '123-456-7890');
-    _notasController = TextEditingController(text: 'Notas existentes para cliente ${widget.clientId}');
+    _notasController = TextEditingController(
+        text: 'Notas existentes para cliente ${widget.clientId}');
   }
 
   @override
@@ -64,7 +65,9 @@ class _ClienteEditFormState extends State<ClienteEditForm> {
               if (_formKey.currentState!.validate()) {
                 // Lógica para guardar los cambios del cliente
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Guardando cambios para cliente ${widget.clientId}')),
+                  SnackBar(
+                      content: Text(
+                          'Guardando cambios para cliente ${widget.clientId}')),
                 );
                 context.pop(); // Go back after saving
               }

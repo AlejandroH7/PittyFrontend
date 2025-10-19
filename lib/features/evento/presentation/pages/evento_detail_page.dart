@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -29,7 +28,8 @@ class EventoDetailPage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('Confirmar Eliminación'),
-                    content: Text('¿Estás seguro de que quieres eliminar el evento $id?'),
+                    content: Text(
+                        '¿Estás seguro de que quieres eliminar el evento $id?'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -41,7 +41,8 @@ class EventoDetailPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Eliminando evento $id')),
                           );
-                          context.pop(); // Go back to list after simulated deletion
+                          context
+                              .pop(); // Go back to list after simulated deletion
                         },
                         child: const Text('Eliminar'),
                       ),

@@ -22,10 +22,12 @@ class _EventoEditFormState extends State<EventoEditForm> {
   void initState() {
     super.initState();
     // Simulate fetching existing evento data
-    _tituloController = TextEditingController(text: 'Evento ${widget.eventoId} Título');
+    _tituloController =
+        TextEditingController(text: 'Evento ${widget.eventoId} Título');
     _lugarController = TextEditingController(text: 'Lugar del Evento');
     _pedidoIdController = TextEditingController(text: '1'); // Placeholder
-    _notasController = TextEditingController(text: 'Notas existentes para evento ${widget.eventoId}');
+    _notasController = TextEditingController(
+        text: 'Notas existentes para evento ${widget.eventoId}');
     _fechaHora = DateTime.now().add(const Duration(days: 30)); // Placeholder
   }
 
@@ -110,10 +112,13 @@ class _EventoEditFormState extends State<EventoEditForm> {
           ),
           TextFormField(
             controller: _pedidoIdController,
-            decoration: const InputDecoration(labelText: 'ID Pedido (opcional)'),
+            decoration:
+                const InputDecoration(labelText: 'ID Pedido (opcional)'),
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value != null && value.isNotEmpty && int.tryParse(value) == null) {
+              if (value != null &&
+                  value.isNotEmpty &&
+                  int.tryParse(value) == null) {
                 return 'Por favor ingrese un número válido';
               }
               return null;
@@ -130,13 +135,16 @@ class _EventoEditFormState extends State<EventoEditForm> {
               if (_formKey.currentState!.validate()) {
                 if (_fechaHora == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor seleccione una fecha y hora')),
+                    const SnackBar(
+                        content: Text('Por favor seleccione una fecha y hora')),
                   );
                   return;
                 }
                 // Lógica para guardar los cambios del evento
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Guardando cambios para evento ${widget.eventoId}')),
+                  SnackBar(
+                      content: Text(
+                          'Guardando cambios para evento ${widget.eventoId}')),
                 );
                 context.pop(); // Go back after saving
               }

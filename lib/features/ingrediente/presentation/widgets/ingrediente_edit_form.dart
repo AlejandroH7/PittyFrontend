@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,7 +22,8 @@ class _IngredienteEditFormState extends State<IngredienteEditForm> {
   void initState() {
     super.initState();
     // Simulate fetching existing ingrediente data
-    _nombreController = TextEditingController(text: 'Ingrediente ${widget.ingredienteId} Nombre');
+    _nombreController = TextEditingController(
+        text: 'Ingrediente ${widget.ingredienteId} Nombre');
     _unidadController = TextEditingController(text: 'kg');
     _stockMinimoController = TextEditingController(text: '5.0');
     _stockActualController = TextEditingController(text: '10.0');
@@ -108,7 +108,9 @@ class _IngredienteEditFormState extends State<IngredienteEditForm> {
               if (_formKey.currentState!.validate()) {
                 // Lógica para guardar los cambios del ingrediente
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Guardando cambios para ingrediente ${widget.ingredienteId}')),
+                  SnackBar(
+                      content: Text(
+                          'Guardando cambios para ingrediente ${widget.ingredienteId}')),
                 );
                 context.pop(); // Go back after saving
               }
